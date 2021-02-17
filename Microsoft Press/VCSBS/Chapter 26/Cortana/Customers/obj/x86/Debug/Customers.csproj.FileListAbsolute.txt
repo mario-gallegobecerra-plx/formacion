@@ -1,0 +1,13 @@
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\Customers.csprojResolveAssemblyReference.cache
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\App.g.i.cs
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\App.g.cs
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\MainPage.g.i.cs
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\MainPage.g.cs
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\App.xaml
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\AppStyles.xaml
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\MainPage.xaml
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\App.xbf
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\AppStyles.xbf
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\MainPage.xbf
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 26\Cortana\Customers\obj\x86\Debug\XamlSaveStateFile.xml

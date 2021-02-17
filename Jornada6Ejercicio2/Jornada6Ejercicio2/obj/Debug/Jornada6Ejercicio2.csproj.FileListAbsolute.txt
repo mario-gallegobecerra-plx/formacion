@@ -1,0 +1,6 @@
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\obj\Debug\Jornada6Ejercicio2.csproj.CoreCompileInputs.cache
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\bin\Debug\Jornada6Ejercicio2.exe.config
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\bin\Debug\Jornada6Ejercicio2.exe
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\bin\Debug\Jornada6Ejercicio2.pdb
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\obj\Debug\Jornada6Ejercicio2.exe
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio2\Jornada6Ejercicio2\obj\Debug\Jornada6Ejercicio2.pdb

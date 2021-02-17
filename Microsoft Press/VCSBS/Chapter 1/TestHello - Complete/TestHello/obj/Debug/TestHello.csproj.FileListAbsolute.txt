@@ -1,0 +1,6 @@
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\bin\Debug\TestHello.exe.config
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\bin\Debug\TestHello.exe
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\bin\Debug\TestHello.pdb
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\obj\Debug\TestHello.csprojResolveAssemblyReference.cache
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\obj\Debug\TestHello.exe
+C:\Work In Progress\MS Press\CSharp Step By Step 8th Edition\Microsoft Press\VCSBS\Chapter 1\TestHello - Complete\TestHello\obj\Debug\TestHello.pdb

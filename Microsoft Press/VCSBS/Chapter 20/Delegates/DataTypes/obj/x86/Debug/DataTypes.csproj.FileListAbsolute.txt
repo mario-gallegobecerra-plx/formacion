@@ -1,0 +1,17 @@
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\bin\x86\Debug\DataTypes.dll
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\bin\x86\Debug\DataTypes.pdb
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\bin\x86\Debug\DataTypes.pri
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\DataTypes.csprojResolveAssemblyReference.cache
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\DataTypes.dll
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\DataTypes.pdb
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\priconfig.xml
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\priconfig.xml.intermediate
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\layout.resfiles
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\layout.resfiles.intermediate
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\resources.resfiles
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\resources.resfiles.intermediate
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\pri.resfiles
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\pri.resfiles.intermediate
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\qualifiers.txt
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Work In Progress\MS Press\CSharp Step By Step 9th Edition\Microsoft Press\VCSBS\Chapter 20\Delegates\DataTypes\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt

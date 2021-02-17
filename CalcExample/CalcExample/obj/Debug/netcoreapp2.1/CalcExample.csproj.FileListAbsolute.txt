@@ -1,0 +1,11 @@
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\bin\Debug\netcoreapp2.1\CalcExample.deps.json
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\bin\Debug\netcoreapp2.1\CalcExample.runtimeconfig.json
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\bin\Debug\netcoreapp2.1\CalcExample.runtimeconfig.dev.json
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\bin\Debug\netcoreapp2.1\CalcExample.dll
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\bin\Debug\netcoreapp2.1\CalcExample.pdb
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.csprojAssemblyReference.cache
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.csproj.CoreCompileInputs.cache
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.AssemblyInfoInputs.cache
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.AssemblyInfo.cs
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.dll
+C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\CalcExample\CalcExample\obj\Debug\netcoreapp2.1\CalcExample.pdb
