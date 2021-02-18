@@ -24,8 +24,16 @@ namespace WpfApp1
         }
         public static void entre(double n)
         {
-           if(n != 0)
-               totalValue /= n;
+            totalValue /= n;
+        }
+
+        public static void raiz2(double n)
+        {
+            totalValue = Math.Sqrt(n);
+        }
+        public static void log10(double n)
+        {
+            totalValue = Math.Log10(n);
         }
     }
 }

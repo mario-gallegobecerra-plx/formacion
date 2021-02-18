@@ -29,79 +29,106 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+
+
+
+
+ // Custom class vars
         string lastPressed = "";
         NumberFormatInfo formatter;
+        bool isAdvanceChecked = false;
 
+
+        // Custom methods
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string contentPressed = (sender as Button).Content.ToString();
 
-            switch (contentPressed)
-            {
-                case "+":
-                    if( lastPressed != "=")
-                        sum(Convert.ToDouble(screenLbl.Content.ToString(),formatter));
-                    screenLbl.Content = "0";
-                    lastPressed = "+";
-                    break;
-                case "-":
-                    if (lastPressed != "=")
-                        res(double.Parse(screenLbl.Content.ToString(), formatter));
-                    screenLbl.Content = "0";
-                    lastPressed = "-";
-                    break;
-                case "x":
-                    if (lastPressed != "=")
-                        if (lastPressed == "")
-                            totalValue = double.Parse(screenLbl.Content.ToString(), formatter);
-                        else
-                            por(double.Parse(screenLbl.Content.ToString(), formatter));
-                    screenLbl.Content = "0";
-                    lastPressed = "x";
-                    break;
-                case "/":
-                    if (lastPressed != "=")
-                        if (lastPressed == "")
-                            totalValue = double.Parse(screenLbl.Content.ToString(), formatter);
-                        else
-                            entre(double.Parse(screenLbl.Content.ToString(), formatter));
-                    screenLbl.Content = "0";
-                    lastPressed = "/";
-                    break;
-                case "=":
-                    switch (lastPressed){
-                        case "+":
-                            sum(double.Parse(screenLbl.Content.ToString(), formatter));
-                            break;
-                        case "-":
-                            res(double.Parse(screenLbl.Content.ToString(), formatter));
-                            break;
-                        case "x":
-                            por(double.Parse(screenLbl.Content.ToString(), formatter));
-                            break;
-                        case "/":
-                            entre(double.Parse(screenLbl.Content.ToString(), formatter));
-                            break;
-                    }
-                    lastPressed = "=";
-                    screenLbl.Content = totalValue.ToString();
-                    break;
-                case ".":
-                    addPoint();
-                    break;
-                case "CE":
-                    screenLbl.Content = "0";
-                    totalValue = 0;
-                    lastPressed = "";
-                    break;
-                default:
-                    setNumberScreen(contentPressed);
-                    break;
+            double screenValue = double.Parse(screenLbl.Content.ToString(), formatter);
 
+            try
+            {
+
+                switch (contentPressed)
+                {
+                    case "+":
+                        if (lastPressed != "=")
+                            sum(Convert.ToDouble(screenLbl.Content.ToString(), formatter));
+                        screenLbl.Content = "0";
+                        lastPressed = "+";
+                        break;
+                    case "-":
+                        if (lastPressed != "=")
+                            res(screenValue);
+                        screenLbl.Content = "0";
+                        lastPressed = "-";
+                        break;
+                    case "x":
+                        if (lastPressed != "=")
+                            if (lastPressed == "")
+                                totalValue = screenValue;
+                            else
+                                por(screenValue);
+                        screenLbl.Content = "0";
+                        lastPressed = "x";
+                        break;
+                    case "/":
+                        if (lastPressed != "=")
+                            if (lastPressed == "")
+                                totalValue = screenValue;
+                            else
+                                entre(screenValue);
+                        screenLbl.Content = "0";
+                        lastPressed = "/";
+                        break;
+                    case "=":
+                        switch (lastPressed)
+                        {
+                            case "+":
+                                sum(screenValue);
+                                break;
+                            case "-":
+                                res(screenValue);
+                                break;
+                            case "x":
+                                por(screenValue);
+                                break;
+                            case "/":
+                                entre(screenValue);
+                                break;
+                        }
+                        lastPressed = "=";
+                        screenLbl.Content = totalValue.ToString();
+                        break;
+                    case ".":
+                        addPoint();
+                        break;
+                    case "CE":
+                        screenLbl.Content = "0";
+                        totalValue = 0;
+                        lastPressed = "";
+                        break;
+                    case "R2":
+                        raiz2(screenValue);
+                        screenLbl.Content = totalValue.ToString();
+                        break;
+                    case "Lg10":
+                        log10(screenValue);
+                        screenLbl.Content = totalValue.ToString();
+                        break;
+                    default:
+                        setNumberScreen(contentPressed);
+                        break;
+
+                }
+            } catch (Exception err)
+            {
+                screenLbl.Content = "Error";
+                totalValue = 0;
+                lastPressed = "";
             }
 
         }
-
 
         private void setNumberScreen(String content)
         {
@@ -133,6 +160,22 @@ namespace WpfApp1
                 screenLbl.Content = currentContent + ".";
         }
 
+        double principalWidthStart = 450.164;
+        double windowPrincipalAdvance = 646.964;
+        private void ToggleAdvaceCheck(object sender, RoutedEventArgs e)
+        {
+
+            isAdvanceChecked = !isAdvanceChecked;
+            if (!isAdvanceChecked)
+            {
+                advancePanel.Visibility = Visibility.Hidden;
+                principalWindow.Width = principalWidthStart;
+                return;
+            }
+            advancePanel.Visibility = Visibility.Visible;
+            principalWindow.Width = windowPrincipalAdvance;
+
+        }
     }
 
 }
