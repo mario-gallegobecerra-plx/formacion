@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Globalization;
 using static WpfApp1.Calculadora;
+using System.Threading;
 
 namespace WpfApp1
 {
@@ -22,44 +23,69 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
+        public void onLoaded(Object obj)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+
+                MainWindow thisObj = (MainWindow)obj;
+
+                while (!thisObj.IsLoaded) ;
+                thisObj.isAdvanceChecked = true;
+                thisObj.ToggleAdvaceCheck(null, null);
+            });
+        }
+
         public MainWindow()
         {
             formatter = new NumberFormatInfo();
             formatter.NumberDecimalSeparator = ".";
             InitializeComponent();
+            new Thread(new ParameterizedThreadStart( onLoaded)).Start(this);
         }
 
-
-
-
-
+                     
  // Custom class vars
         string lastPressed = "";
         NumberFormatInfo formatter;
         bool isAdvanceChecked = false;
-
+        double principalWidthStart = 450.164;
+        double windowPrincipalAdvance = 646.964;
 
         // Custom methods
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string contentPressed = (sender as Button).Content.ToString();
 
-            double screenValue = double.Parse(screenLbl.Content.ToString(), formatter);
 
             try
             {
+                string screenSValue = screenLbl.Content.ToString();
+                if (screenSValue.ToLower().Equals("error"))
+                        screenLbl.Content = "0";
+
+                double screenValue = double.Parse(screenSValue, formatter);
+
 
                 switch (contentPressed)
                 {
                     case "+":
                         if (lastPressed != "=")
-                            sum(Convert.ToDouble(screenLbl.Content.ToString(), formatter));
+                            if (lastPressed == "")
+                                totalValue = screenValue;
+                            else
+                                sum(screenValue);
                         screenLbl.Content = "0";
                         lastPressed = "+";
                         break;
                     case "-":
                         if (lastPressed != "=")
-                            res(screenValue);
+                            if (lastPressed == "")
+                                totalValue = screenValue;
+                            else
+                                res(screenValue);
                         screenLbl.Content = "0";
                         lastPressed = "-";
                         break;
@@ -134,20 +160,14 @@ namespace WpfApp1
         {
 
             string currentContent = screenLbl.Content.ToString();
-
-            try
-            {
-                int.Parse(content);
-            }catch(Exception e)
-            {
-                screenLbl.Content = "0";
-            }
-
+            
             if (currentContent == "0") {
                 if( content == "0")
                     return;
                 currentContent = "";
             }
+            if (lastPressed == "=")
+                lastPressed = "";
             screenLbl.Content = currentContent + content;
 
         }
@@ -160,8 +180,6 @@ namespace WpfApp1
                 screenLbl.Content = currentContent + ".";
         }
 
-        double principalWidthStart = 450.164;
-        double windowPrincipalAdvance = 646.964;
         private void ToggleAdvaceCheck(object sender, RoutedEventArgs e)
         {
 
