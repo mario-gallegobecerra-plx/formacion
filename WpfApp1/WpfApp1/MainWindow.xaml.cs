@@ -51,8 +51,8 @@ namespace WpfApp1
         string lastPressed = "";
         NumberFormatInfo formatter;
         bool isAdvanceChecked = false;
-        double principalWidthStart = 450.164;
-        double windowPrincipalAdvance = 646.964;
+        const double principalWidthStart = 450.164;
+        const double windowPrincipalAdvance = 646.964;
 
         // Custom methods
         private void Button_Click(object sender, RoutedEventArgs e)
