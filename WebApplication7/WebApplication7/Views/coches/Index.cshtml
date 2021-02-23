@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebApplication7.Models.coche>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.puertas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kilometraje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.garantia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.puertas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kilometraje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.garantia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.foto)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Create", new { id_coche = item.id_coche, is_new = false }) <br />
+            @Html.ActionLink("Create copy", "Create", new { id_coche = item.id_coche, is_new = true }) <br />
+            <a href="#" onclick="$('#popupcompaventa').toggle(); $('#overlay').toggle(); $('#id_coche').val(@item.id_coche)" >Comprar/Vender</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<div id="overlay" style="display:none;"></div>
+<div id="popupcompaventa" style="display:none;">
+    @using (Html.BeginForm("", "operaciones/add",  FormMethod.Post, new { @class = "example", @id = "operacionesForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <iframe name="clientes" src="clientes?toSelect=true"></iframe>
+        <iframe name="empelados" src="empleados?toSelect=true"></iframe>
+        <input type="hidden" id="clienteInput" name="id_cliente" value="" />
+        <input type="hidden" id="vendedorInput" name="id_vendedor" value="" />
+        <input type="number" step="any" id="precio" name="precio" value="0" />
+        <input type="hidden" id="id_coche" name="id_coche" value="" />
+        <input type="submit" name="id_tipooperacion" value="comprar" onclick="this.value = 1" />
+        <input type="submit" name="id_tipooperacion" value="vender" onclick="this.value = 2" />
+    }
+</div>

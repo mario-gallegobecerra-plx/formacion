@@ -1,0 +1,97 @@
+﻿@model IEnumerable<WebApplication7.Models.personas>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PersonasListView</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table id="listPerson" class="table">
+        <tr>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.id_persona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.id_tipopersona)
+            </th>
+            <th >
+                Tipo
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td style="display: none;">
+                @Html.DisplayFor(modelItem => item.id_persona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @{
+                    if (item.id_tipopersona == 1)
+                    {
+                        <p> cliente </p>
+                    }
+                    if (item.id_tipopersona == 2)
+                    {
+                        <p> empleado </p>
+                    }
+                }
+            </td>
+            <td style="display: none;">
+                @Html.DisplayFor(modelItem => item.id_tipopersona)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Create", new { id_persona = item.id_persona }) <br />
+                @Html.ActionLink("Create Copy", "Create", item) <br />
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

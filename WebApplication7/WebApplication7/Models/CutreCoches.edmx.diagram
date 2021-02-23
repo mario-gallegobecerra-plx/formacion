@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9dc68c3fa574aeab106e5fe7a7f62ca" Name="Diagram1">
+        <EntityTypeShape EntityType="CutreCocheModel.coche" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CutreCocheModel.operaciones" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CutreCocheModel.personas" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CutreCocheModel.tipo_operacion" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CutreCocheModel.tipo_persona" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="CutreCocheModel.FK__operacion__id_co__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="CutreCocheModel.FK__operacion__clien__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="CutreCocheModel.FK__operacion__id_ti__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="CutreCocheModel.FK__operacion__vende__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="CutreCocheModel.FK__personas__id_tip__3C69FB99" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

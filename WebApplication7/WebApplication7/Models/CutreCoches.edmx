@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CutreCocheModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="coche">
+          <Key>
+            <PropertyRef Name="id_coche" />
+          </Key>
+          <Property Name="id_coche" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="30" />
+          <Property Name="modelo" Type="varchar" MaxLength="40" />
+          <Property Name="puertas" Type="int" />
+          <Property Name="color" Type="varchar" MaxLength="20" />
+          <Property Name="kilometraje" Type="int" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" />
+          <Property Name="garantia" Type="int" />
+          <Property Name="stock" Type="int" />
+          <Property Name="foto" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="operaciones">
+          <Key>
+            <PropertyRef Name="id_operacion" />
+          </Key>
+          <Property Name="id_operacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="cliente" Type="int" />
+          <Property Name="vendedor" Type="int" />
+          <Property Name="precio" Type="float" />
+          <Property Name="id_tipooperacion" Type="int" />
+          <Property Name="id_coche" Type="int" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nif" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="apellidos" Type="varchar" MaxLength="60" />
+          <Property Name="telefono" Type="varchar" MaxLength="12" />
+          <Property Name="direccion" Type="varchar" MaxLength="60" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="id_tipopersona" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_operacion">
+          <Key>
+            <PropertyRef Name="id_tipooperacion" />
+          </Key>
+          <Property Name="id_tipooperacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="tipo_persona">
+          <Key>
+            <PropertyRef Name="id_tipopersona" />
+          </Key>
+          <Property Name="id_tipopersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK__operacion__clien__4222D4EF">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__id_co__44FF419A">
+          <End Role="coche" Type="Self.coche" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coche">
+              <PropertyRef Name="id_coche" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="id_coche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__id_ti__440B1D61">
+          <End Role="tipo_operacion" Type="Self.tipo_operacion" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_operacion">
+              <PropertyRef Name="id_tipooperacion" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="id_tipooperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__vende__4316F928">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personas__id_tip__3C69FB99">
+          <End Role="tipo_persona" Type="Self.tipo_persona" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_persona">
+              <PropertyRef Name="id_tipopersona" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_tipopersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CutreCocheModelStoreContainer">
+          <EntitySet Name="coche" EntityType="Self.coche" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="operaciones" EntityType="Self.operaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_operacion" EntityType="Self.tipo_operacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_persona" EntityType="Self.tipo_persona" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__operacion__clien__4222D4EF" Association="Self.FK__operacion__clien__4222D4EF">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__id_co__44FF419A" Association="Self.FK__operacion__id_co__44FF419A">
+            <End Role="coche" EntitySet="coche" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__id_ti__440B1D61" Association="Self.FK__operacion__id_ti__440B1D61">
+            <End Role="tipo_operacion" EntitySet="tipo_operacion" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__vende__4316F928" Association="Self.FK__operacion__vende__4316F928">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personas__id_tip__3C69FB99" Association="Self.FK__personas__id_tip__3C69FB99">
+            <End Role="tipo_persona" EntitySet="tipo_persona" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CutreCocheModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="coche">
+          <Key>
+            <PropertyRef Name="id_coche" />
+          </Key>
+          <Property Name="id_coche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="puertas" Type="Int32" />
+          <Property Name="color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="kilometraje" Type="Int32" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="garantia" Type="Int32" />
+          <Property Name="stock" Type="Int32" />
+          <Property Name="foto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="operaciones" Relationship="Self.FK__operacion__id_co__44FF419A" FromRole="coche" ToRole="operaciones" />
+        </EntityType>
+        <EntityType Name="operaciones">
+          <Key>
+            <PropertyRef Name="id_operacion" />
+          </Key>
+          <Property Name="id_operacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="cliente" Type="Int32" />
+          <Property Name="vendedor" Type="Int32" />
+          <Property Name="precio" Type="Double" />
+          <Property Name="id_tipooperacion" Type="Int32" />
+          <Property Name="id_coche" Type="Int32" />
+          <NavigationProperty Name="coche" Relationship="Self.FK__operacion__id_co__44FF419A" FromRole="operaciones" ToRole="coche" />
+          <NavigationProperty Name="personas" Relationship="Self.FK__operacion__clien__4222D4EF" FromRole="operaciones" ToRole="personas" />
+          <NavigationProperty Name="tipo_operacion" Relationship="Self.FK__operacion__id_ti__440B1D61" FromRole="operaciones" ToRole="tipo_operacion" />
+          <NavigationProperty Name="personas1" Relationship="Self.FK__operacion__vende__4316F928" FromRole="operaciones" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nif" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipopersona" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="operaciones" Relationship="Self.FK__operacion__clien__4222D4EF" FromRole="personas" ToRole="operaciones" />
+          <NavigationProperty Name="operaciones1" Relationship="Self.FK__operacion__vende__4316F928" FromRole="personas" ToRole="operaciones" />
+          <NavigationProperty Name="tipo_persona" Relationship="Self.FK__personas__id_tip__3C69FB99" FromRole="personas" ToRole="tipo_persona" />
+        </EntityType>
+        <EntityType Name="tipo_operacion">
+          <Key>
+            <PropertyRef Name="id_tipooperacion" />
+          </Key>
+          <Property Name="id_tipooperacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="operaciones" Relationship="Self.FK__operacion__id_ti__440B1D61" FromRole="tipo_operacion" ToRole="operaciones" />
+        </EntityType>
+        <EntityType Name="tipo_persona">
+          <Key>
+            <PropertyRef Name="id_tipopersona" />
+          </Key>
+          <Property Name="id_tipopersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="personas" Relationship="Self.FK__personas__id_tip__3C69FB99" FromRole="tipo_persona" ToRole="personas" />
+        </EntityType>
+        <Association Name="FK__operacion__id_co__44FF419A">
+          <End Role="coche" Type="Self.coche" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coche">
+              <PropertyRef Name="id_coche" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="id_coche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__clien__4222D4EF">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__id_ti__440B1D61">
+          <End Role="tipo_operacion" Type="Self.tipo_operacion" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_operacion">
+              <PropertyRef Name="id_tipooperacion" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="id_tipooperacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__operacion__vende__4316F928">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="operaciones" Type="Self.operaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="operaciones">
+              <PropertyRef Name="vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__personas__id_tip__3C69FB99">
+          <End Role="tipo_persona" Type="Self.tipo_persona" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_persona">
+              <PropertyRef Name="id_tipopersona" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_tipopersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CutreCocheEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="coche" EntityType="Self.coche" />
+          <EntitySet Name="operaciones" EntityType="Self.operaciones" />
+          <EntitySet Name="personas" EntityType="Self.personas" />
+          <EntitySet Name="tipo_operacion" EntityType="Self.tipo_operacion" />
+          <EntitySet Name="tipo_persona" EntityType="Self.tipo_persona" />
+          <AssociationSet Name="FK__operacion__id_co__44FF419A" Association="Self.FK__operacion__id_co__44FF419A">
+            <End Role="coche" EntitySet="coche" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__clien__4222D4EF" Association="Self.FK__operacion__clien__4222D4EF">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__id_ti__440B1D61" Association="Self.FK__operacion__id_ti__440B1D61">
+            <End Role="tipo_operacion" EntitySet="tipo_operacion" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__operacion__vende__4316F928" Association="Self.FK__operacion__vende__4316F928">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="operaciones" EntitySet="operaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__personas__id_tip__3C69FB99" Association="Self.FK__personas__id_tip__3C69FB99">
+            <End Role="tipo_persona" EntitySet="tipo_persona" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CutreCocheModelStoreContainer" CdmEntityContainer="CutreCocheEntities">
+          <EntitySetMapping Name="coche">
+            <EntityTypeMapping TypeName="CutreCocheModel.coche">
+              <MappingFragment StoreEntitySet="coche">
+                <ScalarProperty Name="id_coche" ColumnName="id_coche" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="puertas" ColumnName="puertas" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="kilometraje" ColumnName="kilometraje" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="garantia" ColumnName="garantia" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="operaciones">
+            <EntityTypeMapping TypeName="CutreCocheModel.operaciones">
+              <MappingFragment StoreEntitySet="operaciones">
+                <ScalarProperty Name="id_operacion" ColumnName="id_operacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="id_tipooperacion" ColumnName="id_tipooperacion" />
+                <ScalarProperty Name="id_coche" ColumnName="id_coche" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="CutreCocheModel.personas">
+              <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="nif" ColumnName="nif" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_tipopersona" ColumnName="id_tipopersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_operacion">
+            <EntityTypeMapping TypeName="CutreCocheModel.tipo_operacion">
+              <MappingFragment StoreEntitySet="tipo_operacion">
+                <ScalarProperty Name="id_tipooperacion" ColumnName="id_tipooperacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_persona">
+            <EntityTypeMapping TypeName="CutreCocheModel.tipo_persona">
+              <MappingFragment StoreEntitySet="tipo_persona">
+                <ScalarProperty Name="id_tipopersona" ColumnName="id_tipopersona" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

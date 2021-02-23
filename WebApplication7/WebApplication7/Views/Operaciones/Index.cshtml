@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebApplication7.Models.operaciones>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create?is_new=false")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coche.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.personas.nif) comprador
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_operacion.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.personas1.nif) vendedor
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coche.marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personas.nif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_operacion.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personas1.nif)
+        </td>
+    </tr>
+}
+
+</table>
