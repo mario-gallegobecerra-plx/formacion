@@ -1,7 +1,0 @@
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\bin\Debug\Jornada6Ejercicio9.exe.config
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\bin\Debug\Jornada6Ejercicio9.exe
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\bin\Debug\Jornada6Ejercicio9.pdb
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\obj\Debug\Jornada6Ejercicio9.csprojAssemblyReference.cache
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\obj\Debug\Jornada6Ejercicio9.csproj.CoreCompileInputs.cache
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\obj\Debug\Jornada6Ejercicio9.exe
-C:\Users\mario.gallegobecerra\Desktop\Plexus\Formacion\WS\Jornada6Ejercicio9\Jornada6Ejercicio9\obj\Debug\Jornada6Ejercicio9.pdb
