@@ -1,0 +1,31 @@
+USE [Personas]
+GO
+
+/****** Object:  Table [dbo].[PERSONAS]    Script Date: 01/03/2021 9:33:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PERSONAS](
+	[ID_PERSONAS] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NULL,
+	[Apellidos] [varchar](150) NULL,
+	[NIF] [varchar](11) NULL,
+	[Dirección] [varchar](500) NULL,
+	[Ciudad] [varchar](20) NULL,
+	[Estado_Civil] [varchar](10) NULL,
+	[Sexo] [varchar](10) NULL,
+	[Código_Postal] [int] NULL,
+	[Provincia] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED
+(
+	[ID_PERSONAS] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED
+(
+	[NIF] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
