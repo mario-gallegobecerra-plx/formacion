@@ -32,7 +32,9 @@ namespace WebApplication1.Controllers
             }
             catch (Exception e)
             {
-                return Ok("Login incorrecto\n\t" + e.Message);
+                System.Web.Http.Results.UnauthorizedResult resp = Unauthorized();
+                resp.Request.Content = new StringContent("Login incorrecto\n\t" + e.Message);
+                return resp;
             }
                 
         }

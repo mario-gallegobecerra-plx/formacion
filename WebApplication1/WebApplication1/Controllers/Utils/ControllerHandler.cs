@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using static Utils.WebServicesUtils;
+using System.Net;
 
 namespace WebApplication1.Controllers.Utils
 {
@@ -20,24 +21,27 @@ namespace WebApplication1.Controllers.Utils
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add login exception in token handler
-            if (request.RequestUri.AbsolutePath.ToString().Equals("/login"))
-                return base.SendAsync(request, cancellationToken);
-
-            try
+            if (!request.RequestUri.AbsolutePath.ToString().Equals("/login"))
             {
-                IEnumerable<string> headers;
+                try
+                {
+                    IEnumerable<string> headers;
                     request.Headers.TryGetValues("Authorization", out headers);
 
-                DateTime date = new JwtSecurityTokenHandler()
-                            .ReadToken(headers.First().Substring(7))
-                            .ValidTo;
+                    DateTime date = new JwtSecurityTokenHandler()
+                                .ReadToken(headers.First().Substring(7))
+                                .ValidTo;
 
-                if (DateTime.Compare(date, DateTime.Now) < 0)
-                    throw new Exception("error");
+                    if (DateTime.Compare(date, DateTime.Now) < 0)
+                        throw new Exception("error con la valided del token");
 
-            }catch (Exception e)
-            {
-                throw new Exception("Error con el token\n\t" + e.Message);
+                }
+                catch (Exception e)
+                {
+                    HttpResponseMessage resp = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                    resp.Content = new StringContent("Error con el token:   " + e.Message);
+                    return Task<HttpResponseMessage>.Factory.StartNew( () => resp );
+                }
             }
 
             return base.SendAsync(request, cancellationToken);
