@@ -22,7 +22,12 @@ namespace WebApplication1.Controllers
         {
             QueuManager.GetQueueManager().AddMessageInQueue(QueueName, Message);
 
-            return JObject.Parse("{ 'added' : { '" + QueueName + "':'" + Message + "'}}");
+            JObject ToReturn = new JObject();
+
+            ToReturn.Add(new JProperty("name", QueueName));
+            ToReturn.Add(new JProperty("message", Message));
+
+            return new JObject(new JProperty("added", ToReturn));
         }
 
         [HttpGet]
@@ -30,8 +35,12 @@ namespace WebApplication1.Controllers
         public JObject GetMessagge(string QueueName)
         {
             string Messagge = QueuManager.GetQueueManager().GetMessageInQueue(QueueName);
+            JObject ToReturn = new JObject();
 
-            return JObject.Parse("{ 'message' : { '" + QueueName + "':'" + Messagge + "'}}");
+            ToReturn.Add(new JProperty("name", QueueName));
+            ToReturn.Add(new JProperty("message", Messagge));
+
+            return new JObject(new JProperty("queue", ToReturn));
         }
 
 
@@ -39,7 +48,7 @@ namespace WebApplication1.Controllers
         [Route("queues")]
         public JObject GetQueue()
         {
-            return JObject.Parse( QueuManager.GetQueueManager().GetQueues());
+            return  QueuManager.GetQueueManager().GetQueues();
         }
 
 
